@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Agendamento de horários</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+     <link rel="stylesheet" type="text/css" href="_css/estilo.css"/>
+</head>
+<body>
+
+	<!-- Navbar -->
+	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+		<!-- Brand -->
+		<a class="navbar-brand" href="#">Agendamento de horários</a>
+	</nav>
+
+	<!-- Agenda -->
+	<div class="container-fluid py-5">
+		<h2>Agenda de horários disponíveis</h2>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th></th>
+					<th>Segunda-feira</th>
+					<th>Terça-feira</th>
+					<th>Quarta-feira</th>
+					<th>Quinta-feira</th>
+					<th>Sexta-feira</th>
+					<th>Sábado</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>8h - 9h</th>
+					<td id="seg-8"></td>
+					<td id="ter-8"></td>
+					<td id="qua-8"></td>
+					<td id="qui-8"></td>
+					<td id="sex-8"></td>
+					<td id="sab-8"></td>
+				</tr>
+				<tr>
+					<th>9h - 10h</th>
+					<td id="seg-9"></td>
+					<td id="ter-9"></td>
+					<td id="qua-9"></td>
+					<td id="qui-9"></td>
+					<td id="sex-9"></td>
+					<td id="sab-9"></td>
+				</tr>
+				<tr>
+					<th>10h - 11h</th>
+					<td id="seg-10"></td>
+					<td id="ter-10"></td>
+					<td id="qua-10"></td>
+					<td id="qui-10"></td>
+					<td id="sex-10"></td>
+					<td id="sab-10"></td>
+				</tr>
+				<tr>
+					<th>11h - 12h</th>
+					<td id="seg-11"></td>
+					<td id="ter-11"></td>
+					<td id="qua-11"></td>
+					<td id="qui-11"></td>
+					<td id="sex-11"></td>
+					<td id="sab-11"></td>
+				</tr>
+				<tr>
+					<th>14h - 15h</th>
+					<td id="seg-14"></td>
+					<td id="ter-14"></td>
+					<td id="qua-14"></td>
+					<td id="qui-14"></td>
+                    <td id="sex-14"></td>
+                    <td id="sab-14"></td>
+                    </tr>
+                    <tr>
+                    <th>15h - 16h</th>
+                    <td id="seg-15"></td>
+                    <td id="ter-15"></td>
+                    <td id="qua-15"></td>
+                    <td id="qui-15"></td>
+                    <td id="sex-15"></td>
+                    <td id="sab-15"></td>
+                    </tr>
+                    <tr>
+                    <th>16h - 17h</th>
+                    <td id="seg-16"></td>
+                    <td id="ter-16"></td>
+                    <td id="qua-16"></td>
+                    <td id="qui-16"></td>
+                    <td id="sex-16"></td>
+                    <td id="sab-16"></td>
+                    </tr>
+                    <tr>
+                    <th>17h - 18h</th>
+                    <td id="seg-17"></td>
+                    <td id="ter-17"></td>
+                    <td id="qua-17"></td>
+                    <td id="qui-17"></td>
+                    <td id="sex-17"></td>
+                    <td id="sab-17"></td>
+                    </tr>
+                    </tbody>
+                    </table>
+                    </div>
+                    <!-- Formulário de agendamento -->
+<div class="container-fluid py-5">
+	<h2>Agende seu horário</h2>
+	<form>
+		<div class="form-group">
+			<label for="dia">Dia:</label>
+			<select class="form-control" id="dia" name="dia">
+				<option value="segunda">Segunda-feira</option>
+				<option value="terca">Terça-feira</option>
+				<option value="quarta">Quarta-feira</option>
+				<option value="quinta">Quinta-feira</option>
+				<option value="sexta">Sexta-feira</option>
+				<option value="sabado">Sábado</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="hora">Hora:</label>
+			<select class="form-control" id="hora" name="hora">
+				<option value="8">8h - 9h</option>
+				<option value="9">9h - 10h</option>
+				<option value="10">10h - 11h</option>
+				<option value="11">11h - 12h</option>
+				<option value="14">14h - 15h</option>
+				<option value="15">15h - 16h</option>
+				<option value="16">16h - 17h</option>
+				<option value="17">17h - 18h</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="nome">Nome:</label>
+			<input type="text" class="form-control" id="nome" name="nome">
+		</div>
+		<div class="form-group">
+			<label for="email">E-mail:</label>
+			<input type="email" class="form-control" id="email" name="email">
+		</div>
+		<button type="submit" class="btn btn-primary">Agendar</button>
+	</</div>
+
+    <!-- Script para atualizar a tabela de horários disponíveis -->
+    <script>
+        // Dados de exemplo para os horários disponíveis
+        var disponibilidade = {
+            'seg-8': true,
+            'seg-9': true,
+            'seg-10': false,
+            'seg-11': true,
+            'seg-14': true,
+            'seg-15': true,
+            'seg-16': true,
+            'seg-17': true,
+            'ter-8': true,
+            'ter-9': true,
+            'ter-10': true,
+            'ter-11': true,
+            'ter-14': true,
+            'ter-15': false,
+            'ter-16': true,
+            'ter-17': true,
+            'qua-8': false,
+            'qua-9': true,
+            'qua-10': true,
+            'qua-11': true,
+            'qua-14': true,
+            'qua-15': true,
+            'qua-16': true,
+            'qua-17': true,
+            'qui-8': true,
+            'qui-9': true,
+            'qui-10': true,
+            'qui-11': true,
+            'qui-14': true,
+            'qui-15': true,
+            'qui-16': true,
+            'qui-17': false,
+            'sex-8': true,
+            'sex-9': true,
+            'sex-10': true,
+            'sex-11': true,
+            'sex-14': false,
+            'sex-15': true,
+            'sex-16': true,
+            'sex-17': true,
+            'sab-8': true,
+            'sab-9': true,
+            'sab-10': true,
+            'sab-11': true,
+            'sab-14': true,
+            'sab-15': true,
+            'sab-16': true,
+            'sab-17': true
+        };
+    
+        // Função para atualizar a tabela de horários disponíveis
+        function atualizarTabelaDisponibilidade() {
+            for (var id in disponibilidade) {
+                if (disponibilidade.hasOwnProperty(id)) {
+                    var celula = document.getElementById(id);
+                    if (disponibilidade[id]) {
+                        celula.innerHTML = '<button class="btn btn-success btn-block">Disponível</button>';
+                    } else {
+                        celula.innerHTML = '<button class="btn btn-danger btn-block">Indisponível</button>';
+                    }
+                }
+            }
+        }
+    
+        // Atualiza a tabela de horários disponíveis na inicialização da página
+        atualizarTabelaDisponibilidade();
+    
+        // Função para agendar um horário
+        $('form').submit(function(e) {
+            e.preventDefault();
+            var dia = $('#dia').val();
+            var hora = $('#hora').val();
+            var nome = $('#nome').val();
+            var email = $('#email').val();
+            alert('Horário agendado com sucesso!\n\nDia: ' + dia + '\nHora: ' + hora + '\nNome: ' + nome + '\nE-mail: ' + email);
+        });
+    </script>
+    </body>
+    </html>
+
